@@ -1,0 +1,39 @@
+// Ty O'Neill
+// Assignment 10 Depreciation
+// This program will calculate depreciation for a 5 year period.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection; 
+using System.Text;          
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace Assignment10Depreciation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            // Title and Instructions
+            WriteLine("*****************************************************************************");
+            WriteLine("\t Depreciation");
+            WriteLine("\t Calculate Depreciation of a car");
+            WriteLine("\t Ty O'Neill");
+            WriteLine("Date {0}", DateTime.Today.ToShortDateString());
+            WriteLine("*****************************************************************************");
+            WriteLine("");
+            WriteLine("This program will calculate depreciation");
+            WriteLine("\t for a 5 year period");
+            WriteLine("Enter the make of car or -99 to quit.");
+            WriteLine("Enter the value of the car");
+            WriteLine("*****************************************************************************");
+
+            Depreciate aDepreciate = new Depreciate();
+
+
+            typeof(Depreciate).GetMethod("GetYearlyValue", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(new Depreciate(), null);
+        }
+    }
+}
