@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace Assignment10Depreciation
+{
+    class Depreciate
+    {
+        double carValue = 0;
+        double depreciationValue = .15;
+        string makeOfCar;
+
+
+        public Depreciate()
+        {
+            // Constructor
+        }
+
+        public double CarValue
+        {
+            set { carValue = value; }
+        }
+
+        public string MakeOfCar
+        {
+            set { makeOfCar = value; }
+        }
+
+        public string YearlyValue
+        {
+            set { YearlyValue = value; }
+        }
+
+
+        private void GetYearlyValue()
+        {
+
+            while(makeOfCar != "-99")
+            {
+                WriteLine("Enter a car or -99 to quit: ");
+                makeOfCar = ReadLine();
+
+                if (makeOfCar == "-99")
+                {
+                    break; // Break out of while loop
+                }
+                else
+                {
+                    // Process 5 Years of Values
+                    WriteLine("Enter Car Value: ");
+                    carValue = double.Parse(ReadLine());
+
+                    double afterDepValue = carValue * depreciationValue;
+                 
+                    for (int c=1; c < 6; c++)
+                    {
+                        carValue = carValue - (afterDepValue);
+                        Write("Year {0} value is {1:C2}\n", c, carValue);
+                    }
+                }
+            }
+        }
+    }
+}
